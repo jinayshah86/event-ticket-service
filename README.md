@@ -28,20 +28,23 @@ and give helpful error codes to the API requester, for example in case of input 
 incorrect/missing parameters.
 
 ### Mandatory checklist
-- [ ] Event list API
+- [x] Event list API
 - [ ] Reservation API
 - [ ] Reservation update API
 - [ ] Cancel reservation API
 - [ ] Make sure constraints are satisfied
 
 ### Additional checklist
-- [ ] Event create API
-- [ ] Event fetch API
-- [ ] Event update API
-- [ ] Event delete API
+- [x] Event create API
+- [x] Event fetch API
+- [x] Event update API
+- [x] Event delete API
 - [ ] Docker
-- [ ] PostgreSQL
+- [x] PostgreSQL
 - [ ] Tests
 
 ### Local setup
 - Copy the `.env.template` to `.env` file and update the env vars accordingly
+
+
+### Create a migration
