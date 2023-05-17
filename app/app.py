@@ -3,7 +3,7 @@ from flask_cors import CORS
 
 from loadenv import loadenv
 from models import db, ma, migrate
-from resources import hello, events
+from resources import hello, events, reservations
 from error_handler import register_error_handlers
 
 
@@ -19,6 +19,7 @@ def create_app() -> Flask:
     # register blueprint here
     app.register_blueprint(hello.bp)
     app.register_blueprint(events.bp)
+    app.register_blueprint(reservations.bp)
     # error handlers
     register_error_handlers(app)
     return app

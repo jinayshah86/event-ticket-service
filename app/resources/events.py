@@ -27,11 +27,11 @@ class ListCreateAPIResource(Resource):
 
 class RetrieveUpdateDestroyAPIResource(Resource):
     def get(self, event_id: uuid4):
-        event = db.get_or_404(Event, event_id)
+        event = db.get_or_404(Event, event_id, description=f"Event with event id: {event_id} doesn't exist.")
         return event_schema.dump(event), 201
 
     def patch(self, event_id: uuid4):
-        event = db.get_or_404(Event, event_id)
+        event = db.get_or_404(Event, event_id, description=f"Event with event id: {event_id} doesn't exist.")
         update_data = update_event_schema.load(request.json, partial=True)
         for key, val in update_data.items():
             setattr(event, key, val)
@@ -40,7 +40,7 @@ class RetrieveUpdateDestroyAPIResource(Resource):
         return event_schema.dump(event), 200
 
     def delete(self, event_id: uuid4):
-        event = db.get_or_404(Event, event_id)
+        event = db.get_or_404(Event, event_id, description=f"Event with event id: {event_id} doesn't exist.")
         db.session.delete(event)
         db.session.commit()
         return {}, 204

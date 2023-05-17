@@ -29,10 +29,10 @@ incorrect/missing parameters.
 
 ### Mandatory checklist
 - [x] Event list API
-- [ ] Reservation API
-- [ ] Reservation update API
-- [ ] Cancel reservation API
-- [ ] Make sure constraints are satisfied
+- [x] Reservation API
+- [x] Reservation update API
+- [x] Cancel reservation API
+- [x] Make sure constraints are satisfied
 
 ### Additional checklist
 - [x] Event create API
