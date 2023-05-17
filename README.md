@@ -39,12 +39,22 @@ incorrect/missing parameters.
 - [x] Event fetch API
 - [x] Event update API
 - [x] Event delete API
-- [ ] Docker
+- [x] Docker
 - [x] PostgreSQL
-- [ ] Tests
 
 ### Local setup
 - Copy the `.env.template` to `.env` file and update the env vars accordingly
-
+- Start docker containers
+  - ```shell
+    docker-compose up web
+    ```
+- Stop docker containers
+  - ```shell
+    docker-compose down
+    ```
+- Check application logs
+  - ```shell
+    docker-compose logs web
+    ```
 
 ### Create a migration
