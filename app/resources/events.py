@@ -5,6 +5,7 @@ from flask_restful import Api, Resource
 
 from models import db
 from models.events import Event
+from models.reservations import Reservation
 from schema.events import events_schema, create_event_schema, update_event_schema, event_schema
 
 bp = Blueprint("events", __name__, url_prefix="/events")
@@ -42,6 +43,9 @@ class RetrieveUpdateDestroyAPIResource(Resource):
     def delete(self, event_id: uuid4):
         event = db.get_or_404(Event, event_id, description=f"Event with event id: {event_id} doesn't exist.")
         db.session.delete(event)
+        # Delete reservations
+        delete_q = Reservation.__table__.delete().where(Reservation.event_id == event_id)
+        db.session.execute(delete_q)
         db.session.commit()
         return {}, 204
 
